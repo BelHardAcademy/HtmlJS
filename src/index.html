@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <meta charset="UTF-8">
     <title>Персональная страница</title>
     <link rel="stylesheet" href="css/style.css" />
 </head>
@@ -14,17 +15,20 @@
                 <h4>Персональная страница</h4>
             </a>
             <nav>
-                <a href="index.html">Обо мне</a>
-                <a href="index.html">Блог</a>
-                <a href="index.html">Галерея</a>
-                <a href="index.html">Связаться со мной</a>
+                <a href="index.html?page=about">Обо мне</a>
+                <a href="index.html?page=blog">Блог</a>
+                <a href="index.html?page=gallery">Галерея</a>
+                <a href="index.html?page=contact">Связаться со мной</a>
             </nav>
             <div class="clearfix"></div>
         </div>
     </header>
-    <article class="content">
+
+    <article id="content" class="content">
     </article>
+
     <footer class="content">
+        <div class="clearfix"></div>
         <hr/>
         <p>© 2016
             <span id="currentYear"></span> Сергей Вишневский</p>
