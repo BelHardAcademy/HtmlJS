@@ -1,0 +1,88 @@
+body {
+    margin-top: 80px;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.content {
+    width: 800px;
+    margin: 0 auto;
+}
+
+header {
+    color: #ffffff;
+    position: fixed;
+    background: linear-gradient(#5555ff, #2222ee);
+    width: 100%;
+    height: 70px;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    box-shadow: #5555ee 0 2px;
+}
+
+header .content {
+    height: 100%;
+}
+
+header .logo {
+    margin-right: 15px;
+}
+
+header .logo {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+header .logo h1 {
+    font-size: 22px;
+    margin: 10px 0 0;
+    font-weight: 800;
+    text-shadow: #444444 2px 2px;
+}
+
+header .logo h4 {
+    font-size: 16px;
+    margin: 0;
+    font-weight: 400;
+}
+
+header nav {
+    text-align: right;
+}
+
+header nav a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #ffffff;
+    display: inline-block;
+    margin: 20px 5px 5px;
+    padding: 5px;    
+    border-radius: 3px;
+    box-sizing: border-box;
+    border: 1px solid rgba(255,255,255,0);
+}
+
+header nav a:hover {
+    transform: scale(1.05, 1.05);
+    background-color: #2222ff;
+    border-color: #ffffff;
+}
+
+footer.content {
+    margin-top: 20px;
+}
+
+footer p {
+    text-align: center;
+}
