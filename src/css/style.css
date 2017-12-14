@@ -2,6 +2,25 @@ body {
     margin-top: 80px;
 }
 
+p {
+    text-indent: 20px;
+    text-align: justify;
+    margin: 0;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+h1 {
+    font-size: 26px;
+    font-weight: 800;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
 .left {
     float: left;
 }
@@ -15,8 +34,10 @@ body {
 }
 
 .content {
+    color: #2222ee;
     width: 800px;
     margin: 0 auto;
+    text-shadow: #eeeeee 1px 1px;
 }
 
 header {
@@ -55,6 +76,7 @@ header .logo h4 {
     font-size: 16px;
     margin: 0;
     font-weight: 400;
+    text-shadow: none;
 }
 
 header nav {
@@ -71,12 +93,69 @@ header nav a {
     border-radius: 3px;
     box-sizing: border-box;
     border: 1px solid rgba(255,255,255,0);
+    text-shadow: #444444 1px 1px;
 }
 
 header nav a:hover {
     transform: scale(1.05, 1.05);
     background-color: #2222ff;
     border-color: #ffffff;
+}
+
+.content .about img {
+    display: block;    
+    width: 250px;
+    margin-right: 15px;
+}
+
+.content .about table {
+    font-size: 18px;
+}
+
+.content .about iframe {
+    display: block;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+
+.content .about table td:first-child {
+    font-weight: 800;
+    padding-right: 10px;
+}
+
+.content .hobbylist .hobby {
+    float: left;
+    width: 49.5%;
+    padding: 0 7px;
+    box-sizing: border-box;
+    vertical-align: top;
+    border: 1px solid #444444;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background: linear-gradient(#dddddd, #ffffff);
+    max-height: 380px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.content .hobbylist .hobby:nth-child(even){
+    float: right;
+}
+
+.content .hobbylist .hobby:hover {
+    background: linear-gradient(#cccccc, #dddddd);
+    border: 1px solid #888888;
+}
+
+.content .hobbylist .hobby p img {
+    width: 50%;
+    float: left;
+    margin: 10px 10px 10px 0;
+}
+
+.content .hobbylist .hobby p img:nth-child(odd) {
+    float: right;
+    margin: 10px 0 10px 10px;
 }
 
 footer.content {
