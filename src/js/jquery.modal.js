@@ -1,28 +1,26 @@
 (function ($) {
 	var defaults = {
-		locker: '.hhh',
-		modal: '#eeee'
+		overlay: '<div class="overlay"></div>',
+		modal: '<div id="modal"><a class="close fa fa-window-close"></a></div>'
 	};
-	
+
 	$.fn.modal = function (settings) {
 		var currentSettings = Object.assign({}, defaults, settings);
-		var $locker = $('<div class="locker"></div>');
-		$(document.body).append($locker);
-		
-		var $modal = $(document.body).append($('<div id="modal"><a class="fa fa-window-close"  href="#"></a></div>'));
-		$(document.body).append($modal);
-		$locker.show();
-		var childHtml = $(this).html();
-		var child = $('<div/>')
-			.addClass(this.className)
-			.append(childHtml);
-		$(currentSettings.modal).append(child);
+		var $overlay = $(currentSettings.overlay);
+		if (!$overlay.parentElement) {
+			$(document.body).append($overlay);
+		}
 
-		$(currentSettings.modal + ' > a').click(function () {
-			$(currentSettings.locker + ',' + currentSettings.modal).hide();
-			$(currentSettings.modal)
-				.children('div')
-				.remove();
+		var $modal = $(currentSettings.modal);
+		if (!$modal.parentElement) {
+			$($overlay).append($modal);
+		}
+
+		var $content = $(this).clone();
+		$modal.append($content);
+
+		$modal.children('a').click(function () {
+			$overlay.remove();
 		});
 	}
 
