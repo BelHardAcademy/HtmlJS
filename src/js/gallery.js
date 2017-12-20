@@ -7,34 +7,51 @@ $(document).ready(function () {
 
         function renderContent($content) {
             var $title = $('<h2/>').text($content.attr('alt'));
+            var $arrowLeft = $('<div id="arrowLeft"/>')
+                .click(function () {
+                    updateContent($current.prev());
+                })
+                .append($('<i class="fa fa-arrow-left"/>'));
+
+            var $arrowRight = $('<div id="arrowRight"/>')
+                .click(function () {
+                    updateContent($current.next());
+                })
+                .append($('<i class="fa fa-arrow-right"/>'));
+
+            updateContent($current);
+
             return $('<div/>')
                 .append($title)
                 .append($('<div class="modalContent">')
-                    .append($('<div id="arrowLeft"/>')
-                        .click(function () {
-                            var $prev = $current.prev();
-                            if (!$prev.length) {
-                                return;
-                            }
+                    .append($arrowLeft)
+                    .append($content)
+                    .append($arrowRight));
 
-                            $current = $prev;
-                            $content.attr('src', $current.attr('data-original-src'))
-                            $title.text($current.attr('alt'));
-                        })
-                        .append($('<i class="fa fa-arrow-left"/>')))
-                    .append($content.attr('src', $content.attr('data-original-src')))
-                    .append($('<div id="arrowRight"/>')
-                        .click(function () {
-                            var $next = $current.next();
-                            if (!$next.length) {
-                                return;
-                            }
+            function updateContent($newElement) {
+                if (!$newElement.length) {
+                    return;
+                }
 
-                            $current = $next;
-                            $content.attr('src', $current.attr('data-original-src'))
-                            $title.text($current.attr('alt'));
-                        })
-                        .append($('<i class="fa fa-arrow-right"/>'))));
+                $current = $newElement;
+                $content.attr('src', $current.attr('data-original-src'))
+                $title.text($current.attr('alt'));
+                toggleArrows();
+            }
+
+            function toggleArrows() {
+                if (!$current.prev().length) {
+                    $arrowLeft.hide();
+                } else {
+                    $arrowLeft.show();
+                }
+
+                if (!$current.next().length) {
+                    $arrowRight.hide();
+                } else {
+                    $arrowRight.show();
+                }
+            }
         }
     });
 });
