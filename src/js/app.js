@@ -1,3 +1,7 @@
+appSettings = {
+    baseApiUrl: 'https://my-json-server.typicode.com/BelHardAcademy/HtmlJS/'
+}
+
 var currentYear = new Date().getFullYear();
 
 init();
