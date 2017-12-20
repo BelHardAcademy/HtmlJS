@@ -1,7 +1,8 @@
 (function ($) {
 	var defaults = {
 		overlay: '<div class="overlay"></div>',
-		modal: '<div id="modal"><a class="close fa fa-window-close"></a></div>'
+		modal: '<div id="modal"><a class="close fa fa-window-close"></a></div>',
+		onRenderContent: null
 	};
 
 	$.fn.modal = function (settings) {
@@ -17,8 +18,11 @@
 		}
 
 		var $content = $(this).clone();
-		$modal.append($content);
+		if (currentSettings.onRenderContent){
+			$content = currentSettings.onRenderContent($content);
+		}
 
+		$modal.append($content)
 		$modal.children('a').click(function () {
 			$overlay.remove();
 		});
