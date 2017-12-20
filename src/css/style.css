@@ -16,6 +16,48 @@ h1 {
 h2 {
 	margin-bottom: 10px;
 }
+
+form {
+	width: 80%;
+	margin: 0 auto;
+}
+
+input, textarea, button {
+	border: 1px solid #444444;
+	border-radius: 5px;
+	padding: 5px;
+}
+
+form .form-field {
+	margin: 10px 0;
+}
+
+form .form-field label {
+	display: inline-block;
+	width: 25%;
+	vertical-align: top;
+	font-size: 18px;
+}
+
+form .form-field input, form .form-field textarea {
+	display: inline-block;
+	width: 73%;
+	max-width: 73%;
+	min-width: 73%;
+	box-sizing: border-box;
+}
+
+form button {
+	display: block;
+	min-width: 120px;
+	margin: 0 auto;
+	cursor: pointer
+}
+
+form button:hover{
+	transform: scale(1.05);
+}
+
 .left {
 	float: left;
 }
