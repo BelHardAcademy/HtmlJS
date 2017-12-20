@@ -22,6 +22,8 @@
 		$modal.children('a').click(function () {
 			$overlay.remove();
 		});
+
+		return this;
 	}
 
 }(jQuery));
