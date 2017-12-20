@@ -28,18 +28,19 @@ input, textarea, button {
 	padding: 5px;
 }
 
-form .form-field {
+form fieldset {
 	margin: 10px 0;
+	border: none;
 }
 
-form .form-field label {
+form fieldset label {
 	display: inline-block;
 	width: 25%;
 	vertical-align: top;
 	font-size: 18px;
 }
 
-form .form-field input, form .form-field textarea {
+form fieldset input, form fieldset textarea {
 	display: inline-block;
 	width: 73%;
 	max-width: 73%;
@@ -66,6 +67,9 @@ form button:hover{
 }
 .clearfix {
 	clear: both;
+}
+.error {
+	color: #ff0000;
 }
 .content {
 	color: #2222ee;
