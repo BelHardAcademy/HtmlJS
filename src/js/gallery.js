@@ -1,10 +1,10 @@
 $(document).ready(function () {
-    $.ajax('https://my-json-server.typicode.com/BelHardAcademy/HtmlJS/gallery-photos', {
+    $.ajax(appSettings.baseApiUrl + 'gallery-photos', {
         method: 'GET',
         success: function (response) {
             var template = $("#galleryTemplate").html();
             var html = Mustache.render(template, {
-                gallery: [{album:'dsf', photos:[{}, {}]}]
+                gallery: response
             });
             $('#gallery').append(html);
             $('#gallery .images img').click(function () {
