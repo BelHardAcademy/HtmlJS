@@ -7,6 +7,10 @@ $(document).ready(function () {
                 blogItems: response
             });
             $('#blog').append(html);
+            $('#blog a').click(function(){
+                $(this).parent().next().modal();
+                return false;
+            });
         }
     })    
 });
