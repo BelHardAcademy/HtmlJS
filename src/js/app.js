@@ -18,12 +18,19 @@ function setCopyrightDates() {
     }
 }
 
-function loadPageContent(){
+function loadPageContent() {
     var pageName = getQueryStrinParam('page') || 'about';
+    window.onload = function () {
+        var pageScript = document.createElement('script');
+        pageScript.setAttribute('type', 'text/javascript');
+        pageScript.setAttribute('src', 'js/' + pageName + '.js');
+        document.body.appendChild(pageScript);
+    }
+
     var request = new XMLHttpRequest();
     request.open('GET', `content/${pageName}.html`, true);
-    request.onreadystatechange = function(){
-        if (this.readyState !== 4){
+    request.onreadystatechange = function () {
+        if (this.readyState !== 4) {
             return;
         }
 
