@@ -186,6 +186,15 @@ header nav a:hover {
 	height: 300px;
 }
 
+.content .blog img {
+	width: 250px;
+	margin-right: 15px;
+}
+
+.content .blog .blog-content {
+	display: none;
+}
+
 .modalContent {
 	position: relative;
 }
