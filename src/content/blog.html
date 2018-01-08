@@ -1,0 +1,14 @@
+<section class="blog" id="blog">
+    <script id="blogItemsTemplate" type="text/template">
+        <div>
+            {{#blogItems}}
+            <h2>{{title}}</h2>
+            <div class="images">
+                {{photo}}
+                <img src="{{cover}}" alt="{{title}}" /> {{/photo}}
+                <p>{{summary}}</p>
+            </div>
+            {{/blogItems}}
+        </div>
+    </script>
+</section>
