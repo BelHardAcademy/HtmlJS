@@ -3,11 +3,12 @@
         <div>
             {{#blogItems}}
             <h2>{{title}}</h2>
-            <div class="images">
-                {{photo}}
-                <img src="{{cover}}" alt="{{title}}" /> {{/photo}}
-                <p>{{summary}}</p>
+            <div>
+                <img src="{{cover}}" alt="{{title}}" class="left" />
+                <p>{{summary}} <a href="blog/{{title}}">Читать дальше</a></p>
+                <div class="blog-content">{{content}}</div>
             </div>
+            <div class="clearfix"></div>
             {{/blogItems}}
         </div>
     </script>
