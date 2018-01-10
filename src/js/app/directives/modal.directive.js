@@ -15,7 +15,7 @@
                         target = '#' + attrs.target;
                     }
 
-                    $(target).modal();
+                    $(target).modal({ onRenderContent: attrs.render });
                     return false;
                 });
             }
