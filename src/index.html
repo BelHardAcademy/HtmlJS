@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
 
 <head>
   <meta charset="UTF-8">
@@ -17,15 +17,15 @@
         <h4>Персональная страница</h4>
       </a>
       <nav>
-        <a href="index.html?page=about">Обо мне</a>
-        <a href="index.html?page=blog">Блог</a>
-        <a href="index.html?page=gallery">Галерея</a>
-        <a href="index.html?page=contact">Связаться со мной</a>
+        <a ui-sref="about">Обо мне</a>
+        <a ui-sref="blog">Блог</a>
+        <a ui-sref="gallery">Галерея</a>
+        <a ui-sref="contact">Связаться со мной</a>
       </nav>
       <div class="clearfix"></div>
     </div>
   </header>
-  <article id="content" class="content"> </article>
+  <article id="content" class="content" ui-view> </article>
   <footer class="content">
     <div class="clearfix"></div>
     <hr/>
@@ -38,6 +38,14 @@
   <script type="text/javascript" src="js/mustache.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
   <script type="text/javascript" src="js/jquery.modal.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-route.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
+  <script type="text/javascript" src="js/app/app.js"></script>
+  <script type="text/javascript" src="js/app/about/about.controller.js"></script>
+  <script type="text/javascript" src="js/app/blog/blog.controller.js"></script>
+  <script type="text/javascript" src="js/app/gallery/gallery.controller.js"></script>
+  <script type="text/javascript" src="js/app/contact/contact.controller.js"></script>
 </body>
 
 </html>
