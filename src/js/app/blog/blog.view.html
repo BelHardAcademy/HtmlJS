@@ -1,15 +1,13 @@
 <section class="blog" id="blog">
-    <script id="blogItemsTemplate" type="text/template">
+    <div ng-repeat="item in blogItems">
+        <h2>{{item.title}}</h2>
         <div>
-            {{#blogItems}}
-            <h2>{{title}}</h2>
-            <div>
-                <img src="{{cover}}" alt="{{title}}" class="left" />
-                <p>{{summary}} <a href="blog/{{title}}">Читать дальше</a></p>
-                <div class="blog-content">{{content}}</div>
-            </div>
-            <div class="clearfix"></div>
-            {{/blogItems}}
+            <img src="{{item.cover}}" alt="{{item.title}}" class="left" />
+            <p>{{item.summary}}
+                <a modal data-target="blog-{{$index}}">Читать дальше</a>
+            </p>
+            <div class="blog-content" id="blog-{{$index}}">{{item.content}}</div>
         </div>
-    </script>
+        <div class="clearfix"></div>
+    </div>
 </section>

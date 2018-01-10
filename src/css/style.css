@@ -1,6 +1,9 @@
 body {
 	margin-top: 80px;
 }
+a {
+	text-decoration: underline;
+}
 p {
 	text-indent: 20px;
 	text-align: justify;

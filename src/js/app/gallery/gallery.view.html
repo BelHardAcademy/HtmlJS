@@ -1,14 +1,9 @@
 <section class="gallery" id="gallery">
     <h1>Галерея</h1>
-    <script id="galleryTemplate" type="text/template">
-        <div>
-            {{#gallery}}
-            <h2>{{album}}</h2>
+        <div ng-repeat="item in gallery">
+            <h2>{{item.album}}</h2>
             <div class="images">
-                {{#photos}}
-                <img src="{{thumbnail}}" data-original-src="{{url}}" alt="{{alt}}" /> {{/photos}}
+                <img ng-repeat="image in item.photos" src="{{image.thumbnail}}" data-original-src="{{image.url}}" alt="{{image.alt}}" ng-click="modal($event)" />
             </div>
-            {{/gallery}}
         </div>
-    </script>
 </section>
