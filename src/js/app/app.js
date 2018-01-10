@@ -11,6 +11,21 @@
                 url: '/',
                 templateUrl: '/js/app/about/about.view.html',
                 controller: 'aboutController'
+            })
+            .state('blog', {
+                url: '/blog',
+                templateUrl: '/js/app/blog/blog.view.html',
+                controller: 'blogController'
+            })
+            .state('gallery', {
+                url: '/gallery',
+                templateUrl: '/js/app/gallery/gallery.view.html',
+                controller: 'galleryController'
+            })
+            .state('contact', {
+                url: '/contact',
+                templateUrl: '/js/app/contact/contact.view.html',
+                controller: 'contactController'
             });
 
         $urlRouterProvider.otherwise('/');
