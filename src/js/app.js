@@ -7,7 +7,6 @@ var currentYear = new Date().getFullYear();
 init();
 
 function init() {
-    loadPageContent();
     setCopyrightDates();
 }
 
@@ -16,33 +15,4 @@ function setCopyrightDates() {
         var copyYear = document.getElementById('currentYear');
         copyYear.innerText = ` - ${currentYear}`;
     }
-}
-
-function loadPageContent() {
-    var pageName = getQueryStrinParam('page') || 'about';
-    window.onload = function () {
-        var pageScript = document.createElement('script');
-        pageScript.setAttribute('type', 'text/javascript');
-        pageScript.setAttribute('src', 'js/' + pageName + '.js');
-        document.body.appendChild(pageScript);
-    }
-
-    var request = new XMLHttpRequest();
-    request.open('GET', `content/${pageName}.html`, true);
-    request.onreadystatechange = function () {
-        if (this.readyState !== 4) {
-            return;
-        }
-
-        var html = this.responseText;
-        document.getElementById('content').innerHTML = html;
-    };
-
-    request.send();
-}
-
-function getQueryStrinParam(name) {
-    var reg = new RegExp('[?&]' + name + '=([^&#]*)', 'i');
-    var string = reg.exec(window.location.href);
-    return string ? string[1] : null;
 }
