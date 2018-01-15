@@ -1,33 +1,48 @@
 (function () {
-    'use strict';
+	'use strict';
 
-    $.validator.messages.required = 'Это поле обязательно для заполнения.';
-    $.validator.addMethod('tel', function (value, element) {
-        return /\+\d{9,}/.test(value);
-    }, 'Неверный формат номера телефона.');
 
-    angular
-        .module('app')
-        .controller('contactController', contactController);
 
-    function contactController() {
-        $('#contact').validate({
-            errorElement: 'span',
-            rules: {
-                phone: {
-                    tel: true
-                }
-            },
-            submitHandler: function () {
-                $.ajax(appSettings.baseApiUrl + 'messages', {
-                    method: 'POST',
-                    data: JSON.stringify({
-                        name: 'name'
-                    }),
-                    success: alert("Спасибо!")
-                })
-            }
-        });
-    }
+	angular
+		.module('app')
+		.controller('contactController', contactController);
+
+	contactController.$inject = ['contactService', '$scope']
+
+	function contactController(contactService, $scope) {
+		$scope.validationSettings = {
+			rules: {
+				phone: {
+					tel: true,
+					required: true
+				},				
+				name: {
+					required: true
+				},				
+				email: {
+					required: true
+				},				
+				message: {
+					required: true
+				}
+			}
+		};
+
+		$scope.send = function (form) {
+			if (!form.validate()){
+				return;
+			}
+			contactService.send(
+				$scope.model,
+				function () {
+					$scope.messageSent = true;
+				});
+		}
+
+		$scope.reset = function () {
+			$scope.messageSent = false;
+			$scope.model.message = null;
+		}
+	}
 
 })();

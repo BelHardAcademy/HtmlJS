@@ -1,40 +1,58 @@
+var angular = require('angular');
+require('angular-route');
+require('angular-ui-router');
+require('jpkleemans-angular-validate');
+
 (function (appSettings) {
-    angular
-        .module('app', ['ngRoute', 'ui.router'])
-        .config(config)
-        .run(run);
 
-    config.$inject = ['$stateProvider', '$urlRouterProvider'];
-    function config($stateProvider, $urlRouterProvider) {
-        $stateProvider
-            .state('about', {
-                url: '/',
-                templateUrl: '/js/app/about/about.view.html',
-                controller: 'aboutController'
-            })
-            .state('blog', {
-                url: '/blog',
-                templateUrl: '/js/app/blog/blog.view.html',
-                controller: 'blogController'
-            })
-            .state('gallery', {
-                url: '/gallery',
-                templateUrl: '/js/app/gallery/gallery.view.html',
-                controller: 'galleryController'
-            })
-            .state('contact', {
-                url: '/contact',
-                templateUrl: '/js/app/contact/contact.view.html',
-                controller: 'contactController'
-            });
+	angular
+		.module('app', ['ngRoute', 'ui.router', 'ngValidate'])
+		.config(config)
+		.run(run);
 
-        $urlRouterProvider.otherwise('/');
-    }
+	config.$inject = ['$stateProvider', '$urlRouterProvider', '$validatorProvider'];
 
-    run.$inject = ['$rootScope'];
-    function run($rootScope) {
-        $rootScope.appSettings = appSettings;
-    }
+	function config($stateProvider, $urlRouterProvider, $validatorProvider) {
+		$stateProvider
+			.state('about', {
+				url: '/',
+				templateUrl: '/js/app/about/about.view.html',
+				controller: 'aboutController'
+			})
+			.state('blog', {
+				url: '/blog',
+				templateUrl: '/js/app/blog/blog.view.html',
+				controller: 'blogController'
+			})
+			.state('gallery', {
+				url: '/gallery',
+				templateUrl: '/js/app/gallery/gallery.view.html',
+				controller: 'galleryController'
+			})
+			.state('contact', {
+				url: '/contact',
+				templateUrl: '/js/app/contact/contact.view.html',
+				controller: 'contactController'
+			});
+
+		$urlRouterProvider.otherwise('/');
+
+		$validatorProvider.setDefaults({
+			errorElement: 'span'
+		});
+		$validatorProvider.setDefaultMessages({
+			required: 'Это поле обязательно для заполнения.'
+		});
+		$validatorProvider.addMethod('tel', function (value, element) {
+			return /\+\d{9,}/.test(value);
+		}, 'Неверный формат номера телефона.');
+	}
+
+	run.$inject = ['$rootScope'];
+
+	function run($rootScope) {
+		$rootScope.appSettings = appSettings;
+	}
 })({
-    baseApiUrl: 'https://my-json-server.typicode.com/BelHardAcademy/HtmlJS/'
+	baseApiUrl: 'https://my-json-server.typicode.com/BelHardAcademy/HtmlJS/'
 });
