@@ -1,4 +1,11 @@
 (function (appSettings) {
+    var jQuery = require('jquery');
+    require('jquery-validation');
+    var angular = require('angular');
+    require('angular-route');
+    require('angular-ui-router');
+    require('jpkleemans-angular-validate');
+
     angular
         .module('app', ['ngRoute', 'ui.router', 'ngValidate'])
         .config(config)
