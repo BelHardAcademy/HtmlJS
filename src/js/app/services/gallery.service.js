@@ -5,13 +5,13 @@
         .module('app')
         .factory('galleryService', galleryService);
 
-    galleryService.$inject = ['$http']
+    galleryService.$inject = ['$http', '$rootScope']
 
-    function galleryService($http) {
+    function galleryService($http, $rootScope) {
         var service = {
             getGallery: function (successCallback) {
                 $http({
-                        url: appSettings.baseApiUrl + 'gallery-photos',
+                        url: $rootScope.appSettings.baseApiUrl + 'gallery-photos',
                         method: 'GET'
                     })
                     .then(function (response) {

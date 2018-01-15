@@ -1,33 +1,54 @@
 (function () {
     'use strict';
-
-    $.validator.messages.required = 'Это поле обязательно для заполнения.';
-    $.validator.addMethod('tel', function (value, element) {
-        return /\+\d{9,}/.test(value);
-    }, 'Неверный формат номера телефона.');
-
     angular
         .module('app')
         .controller('contactController', contactController);
 
-    function contactController() {
-        $('#contact').validate({
-            errorElement: 'span',
+    contactController.$inject = ['$scope', 'contactService'];
+
+    function contactController($scope, contactService) {
+        $scope.validationOptions = {
             rules: {
                 phone: {
-                    tel: true
+                    tel: true,
+                    required: true
+                },
+                name: {
+                    required: true
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+                message: {
+                    required: true
                 }
-            },
-            submitHandler: function () {
-                $.ajax(appSettings.baseApiUrl + 'messages', {
-                    method: 'POST',
-                    data: JSON.stringify({
-                        name: 'name'
-                    }),
-                    success: alert("Спасибо!")
-                })
             }
-        });
+        };
+
+        $scope.send = function (form) {
+            if (!form.validate()) {
+                return false;
+            }
+
+            contactService.send({
+                    name: $scope.model.name,
+                    phone: $scope.model.phone,
+                    email: $scope.model.email,
+                    message: $scope.model.message
+                },
+                function () {
+                    $scope.thanksMessageShown = true;
+                }
+            );
+        }
+
+        $scope.reset = function () {
+            $scope.model = {};
+            $scope.thanksMessageShown = false;
+        }
+
+        $scope.$watch('model.phone', function (oldValue, newValue) {});
     }
 
 })();
