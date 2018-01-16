@@ -1,22 +1,15 @@
-<section class="contact">
+<section class="contact" ng-hide="messageSent">
     <h1>Есть вопросы? Напишите мне:</h1>
-    <form id="contact">
-        <fieldset>
-            <label for="name">Ваше имя:</label>
-            <input type="text" id="name" required />
-        </fieldset>
-        <fieldset>
-            <label for="email">Email:</label>
-            <input type="email" id="email" required />
-        </fieldset>
-        <fieldset>
-            <label for="phone">Телефон:</label>
-            <input type="text" id="phone" name="phone" required />
-        </fieldset>
-        <fieldset>
-            <label for="message">Сообщение:</label>
-            <textarea id="message" required></textarea>
-        </fieldset>
-        <button>Отправить</button>
+    <form id="contact" name="contact" ng-submit="send(contact)" ng-validate="validationOptions">
+        <form-input title="Ваше имя" name="name" value="model.name"></form-input>
+        <form-input title="Email" name="email" value="model.email"></form-input>
+        <form-input title="Телефон" name="phone" value="model.phone" placeholder="+375 xx xxxxxxx"></form-input>
+        <form-input title="Сообщение" name="message" type="textarea" value="model.message"></form-input>
+        <button class="center">Отправить</button>
     </form>
+</section>
+
+<section class="contact" ng-show="messageSent">
+    <h1>{{model.name}}, спасибо за обращение!</h1>
+    <button class="center" ng-click="reset()">Написать еще</button>
 </section>

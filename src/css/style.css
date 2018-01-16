@@ -51,14 +51,12 @@ form fieldset input, form fieldset textarea {
 	box-sizing: border-box;
 }
 
-form button {
-	display: block;
+button {
 	min-width: 120px;
-	margin: 0 auto;
 	cursor: pointer
 }
 
-form button:hover{
+button:hover{
 	transform: scale(1.05);
 }
 
@@ -71,8 +69,13 @@ form button:hover{
 .clearfix {
 	clear: both;
 }
+.center {
+	display: block;
+	margin: 0 auto;
+}
 .error {
 	color: #ff0000;
+	border-color: #ff0000;
 }
 .content {
 	color: #2222ee;
