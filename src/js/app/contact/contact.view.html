@@ -1,4 +1,4 @@
-<section class="contact" ng-hide="thanksMessageShown">
+<section class="contact" ng-hide="messageSent">
     <h1>Есть вопросы? Напишите мне:</h1>
     <form id="contact" name="contact" ng-submit="send(contact)" ng-validate="validationOptions">
         <form-input title="Ваше имя" name="name" value="model.name"></form-input>
@@ -9,7 +9,7 @@
     </form>
 </section>
 
-<section class="contact" ng-show="thanksMessageShown">
+<section class="contact" ng-show="messageSent">
     <h1>{{model.name}}, спасибо за обращение!</h1>
     <button class="center" ng-click="reset()">Написать еще</button>
 </section>

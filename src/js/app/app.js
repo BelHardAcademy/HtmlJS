@@ -1,6 +1,8 @@
+window.jQuery = window.$ = require('jquery');
+require('jquery-validation');
+require('../jquery.modal');
+
 (function (appSettings) {
-    var jQuery = require('jquery');
-    require('jquery-validation');
     var angular = require('angular');
     require('angular-route');
     require('angular-ui-router');

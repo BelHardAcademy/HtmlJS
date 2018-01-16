@@ -38,17 +38,15 @@
                     message: $scope.model.message
                 },
                 function () {
-                    $scope.thanksMessageShown = true;
+                    $scope.messageSent = true;
                 }
             );
         }
 
         $scope.reset = function () {
             $scope.model = {};
-            $scope.thanksMessageShown = false;
+            $scope.messageSent = false;
         }
-
-        $scope.$watch('model.phone', function (oldValue, newValue) {});
     }
 
 })();
