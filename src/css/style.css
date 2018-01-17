@@ -3,6 +3,7 @@ body {
 }
 a {
 	text-decoration: underline;
+	cursor: pointer;
 }
 p {
 	text-indent: 20px;
