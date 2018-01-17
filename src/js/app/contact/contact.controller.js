@@ -26,6 +26,8 @@
             }
         };
 
+        $scope.authorized = true;
+
         $scope.send = function (form) {
             if (!form.validate()) {
                 return false;

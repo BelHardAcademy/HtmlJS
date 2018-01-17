@@ -5,9 +5,9 @@
         .config(config)
         .run(run);
 
-    config.$inject = ['$stateProvider', '$urlRouterProvider', '$validatorProvider'];
+    config.$inject = ['$stateProvider', '$urlRouterProvider', '$validatorProvider', '$httpProvider', '$localStorageProvider'];
 
-    function config($stateProvider, $urlRouterProvider, $validatorProvider) {
+    function config($stateProvider, $urlRouterProvider, $validatorProvider, $httpProvider, $localStorageProvider) {
         $stateProvider
             .state('about', {
                 url: '/',
@@ -42,6 +42,19 @@
         $validatorProvider.addMethod('tel', function (value, element) {
             return /\+[\d\s\-]{9,}/.test(value);
         }, 'Неверный формат номера телефона.');
+
+        $httpProvider.interceptors.push(['$q', function ($q) {
+            return {
+                'request': function (httpConfig) {
+                    if ($localStorageProvider.get('token')) {
+                        httpConfig.headers['Authorization'] = $localStorageProvider.get('token');
+                    }
+
+                    return httpConfig;
+                }
+            };
+        }]);
+
     }
 
     run.$inject = ['$rootScope'];
