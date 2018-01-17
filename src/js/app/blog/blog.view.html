@@ -3,7 +3,7 @@
         <h2>{{item.title}}</h2>
         <div>
             <img src="{{item.cover}}" alt="{{item.title}}" class="left" />
-            <p>{{item.summary}}
+            <p>{{item.summary | dots:3}}
                 <a modal data-target="blog-{{$index}}">Читать дальше</a>
             </p>
             <div class="blog-content" id="blog-{{$index}}">{{item.content}}</div>
