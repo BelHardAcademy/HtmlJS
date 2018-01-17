@@ -154,6 +154,19 @@ header nav a:hover {
 	font-weight: 800;
 	padding-right: 10px;
 }
+.content .about .video {
+	position: relative;
+}
+
+.content .about .video i {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 50px;
+	cursor: pointer;
+}
+
 .content .hobbylist .hobby {
 	float: left;
 	width: 49.5%;

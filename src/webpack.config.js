@@ -4,6 +4,7 @@ var webpack = require("webpack");
 
 module.exports = {
     entry: {
+        dependencies: './js/dependencies.js',
         app: './js/app/app.js',
         components: glob.sync("./js/app/*/*.js"),
     },

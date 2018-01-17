@@ -1,15 +1,7 @@
-window.jQuery = window.$ = require('jquery');
-require('jquery-validation');
-require('../jquery.modal');
-
 (function (appSettings) {
-    var angular = require('angular');
-    require('angular-route');
-    require('angular-ui-router');
-    require('jpkleemans-angular-validate');
 
     angular
-        .module('app', ['ngRoute', 'ui.router', 'ngValidate'])
+        .module('app', ['ngRoute', 'ui.router', 'ngValidate', 'ngStorage'])
         .config(config)
         .run(run);
 
