@@ -78,6 +78,9 @@ button:hover{
 	color: #ff0000;
 	border-color: #ff0000;
 }
+.pointer {
+	cursor: pointer;
+}
 .content {
 	color: #2222ee;
 	width: 800px;
@@ -137,6 +140,13 @@ header nav a:hover {
 	background-color: #2222ff;
 	border-color: #ffffff;
 }
+header nav .login {
+	padding: 10px;
+	background: #666666;
+	background: rgba(255, 255, 255, 0.9);
+    border: 1px solid;
+    border-radius: 10px;
+}
 .content .about img {
 	display: block;
 	width: 250px;
@@ -154,6 +164,19 @@ header nav a:hover {
 	font-weight: 800;
 	padding-right: 10px;
 }
+.content .about .video {
+	position: relative;
+}
+
+.content .about .video i {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 50px;
+	cursor: pointer;
+}
+
 .content .hobbylist .hobby {
 	float: left;
 	width: 49.5%;

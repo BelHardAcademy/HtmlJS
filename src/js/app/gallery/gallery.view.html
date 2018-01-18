@@ -1,5 +1,5 @@
 <section class="gallery" id="gallery">
-    <h1>Галерея <i class="fa" ng-class="{ 'fa-sort-asc': !desc, 'fa-sort-desc': desc }" ng-click="desc = !desc"></i></h1>
+    <h1>Галерея <i class="fa pointer" ng-class="{ 'fa-sort-asc': !desc, 'fa-sort-desc': desc }" ng-click="desc = !desc"></i></h1>
         <div ng-repeat="item in gallery | orderBy:'album':desc">
             <h2>{{item.album}}</h2>
             <div class="images">

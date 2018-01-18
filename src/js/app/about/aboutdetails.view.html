@@ -30,6 +30,12 @@
             quis ornare accumsan, blandit sed diam.
         </p>
     </div>
-    <iframe width="600" height="320" src="https://www.youtube.com/embed/UZLchMOf5ik"></iframe>
+    <div class="video">
+        <ng-video class="center" sources="video.sources" width="640" height="320" current-time="video.time" control="video.control" on-ended="video.onended()"
+            autoplay>
+        </ng-video>
+        <i ng-if="video.ended === true" class="fa fa-play-circle-o" ng-click="video.reset()"></i>
+    </div>
+    </ng-video>
     <div class="clearfix"></div>
 </section>

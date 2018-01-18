@@ -1,21 +1,13 @@
-window.jQuery = window.$ = require('jquery');
-require('jquery-validation');
-require('../jquery.modal');
-
 (function (appSettings) {
-    var angular = require('angular');
-    require('angular-route');
-    require('angular-ui-router');
-    require('jpkleemans-angular-validate');
 
     angular
-        .module('app', ['ngRoute', 'ui.router', 'ngValidate'])
+        .module('app', ['ngRoute', 'ui.router', 'ngValidate', 'ngStorage', 'base64'])
         .config(config)
         .run(run);
 
-    config.$inject = ['$stateProvider', '$urlRouterProvider', '$validatorProvider'];
+    config.$inject = ['$stateProvider', '$urlRouterProvider', '$validatorProvider', '$httpProvider', '$localStorageProvider'];
 
-    function config($stateProvider, $urlRouterProvider, $validatorProvider) {
+    function config($stateProvider, $urlRouterProvider, $validatorProvider, $httpProvider, $localStorageProvider) {
         $stateProvider
             .state('about', {
                 url: '/',
@@ -50,6 +42,19 @@ require('../jquery.modal');
         $validatorProvider.addMethod('tel', function (value, element) {
             return /\+[\d\s\-]{9,}/.test(value);
         }, 'Неверный формат номера телефона.');
+
+        $httpProvider.interceptors.push(['$q', function ($q) {
+            return {
+                'request': function (httpConfig) {
+                    if (httpConfig.url.startsWith(appSettings.baseApiUrl) && $localStorageProvider.get('token')) {
+                        httpConfig.headers['Authorization'] = $localStorageProvider.get('token');
+                    }
+
+                    return httpConfig;
+                }
+            };
+        }]);
+
     }
 
     run.$inject = ['$rootScope'];
