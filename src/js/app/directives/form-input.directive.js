@@ -9,16 +9,13 @@
         return {
             restrict: 'E',
             replace: true,
-            templateUrl: '/js/app/contact/form-input.directive.html',
+            templateUrl: '/js/app/directives/form-input.directive.html',
             scope: {
                 name: '@',
                 value: '=',
                 type: '@',
                 title: '@',
                 placeholder: '@'
-            },
-            link: function (scope, element, attrs) {
-
             }
         }
     }

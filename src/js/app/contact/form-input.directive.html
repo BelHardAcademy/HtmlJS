@@ -1,6 +1,0 @@
-<fieldset>
-    <label for="{{name}}">{{title}}:</label>
-    <input ng-hide="type === 'textarea'" type="{{type ? type : 'text'}}" id="{{name}}" name="{{name}}" ng-model="value" placeholder="{{placeholder ? placeholder : title}}"
-    />
-    <textarea ng-show="type === 'textarea'" id="{{name}}" name="{{name}}" ng-model="value" placeholder="{{placeholder ? placeholder : title}}"></textarea>
-</fieldset>

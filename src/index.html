@@ -16,11 +16,21 @@
         <h1>Сергей Вишневский</h1>
         <h4>Персональная страница</h4>
       </a>
-      <nav>
+      <nav ng-controller="menuController">
         <a ui-sref="about">Обо мне</a>
         <a ui-sref="blog">Блог</a>
         <a ui-sref="gallery">Галерея</a>
         <a ui-sref="contact">Связаться со мной</a>
+        <a ng-show="authorized" ng-click="logout()">Выйти</a>
+        <a ng-hide="authorized" ng-click="loginFormVisibility = !loginFormVisibility">Войти</a>
+        <div ng-hide="!loginFormVisibility || authorized" class="login" id="login-form">
+          <h1>Авторизация</h1>
+          <form id="loginForm" name="loginForm" ng-submit="login(loginForm)" ng-validate="validationOptions">
+            <form-input title="Логин" name="login" value="model.login"></form-input>
+            <form-input title="Пароль" name="password" value="model.password" type="password"></form-input>
+            <button class="center">Войти</button>
+          </form>
+        </div>
       </nav>
       <div class="clearfix"></div>
     </div>
@@ -33,6 +43,7 @@
       <span id="currentYear"></span> Сергей Вишневский</p>
   </footer>
   <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="dist/dependencies.js"></script>
   <script type="text/javascript" src="dist/app.js"></script>
   <script type="text/javascript" src="dist/components.js"></script>
 </body>
