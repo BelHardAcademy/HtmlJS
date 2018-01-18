@@ -78,6 +78,9 @@ button:hover{
 	color: #ff0000;
 	border-color: #ff0000;
 }
+.pointer {
+	cursor: pointer;
+}
 .content {
 	color: #2222ee;
 	width: 800px;

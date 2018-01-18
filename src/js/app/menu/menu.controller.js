@@ -20,14 +20,12 @@
                 }
             }
         };
-        
-        $scope.model = {};
 
         $scope.login = function (form) {
             if (!form.validate()) {
                 return false;
             }
-
+            
             authService.login({
                     login: $scope.model.login,
                     password: $scope.model.password

@@ -1,7 +1,7 @@
 (function (appSettings) {
 
     angular
-        .module('app', ['ngRoute', 'ui.router', 'ngValidate', 'ngStorage'])
+        .module('app', ['ngRoute', 'ui.router', 'ngValidate', 'ngStorage', 'base64'])
         .config(config)
         .run(run);
 
@@ -46,7 +46,7 @@
         $httpProvider.interceptors.push(['$q', function ($q) {
             return {
                 'request': function (httpConfig) {
-                    if ($localStorageProvider.get('token')) {
+                    if (httpConfig.url.startsWith(appSettings.baseApiUrl) && $localStorageProvider.get('token')) {
                         httpConfig.headers['Authorization'] = $localStorageProvider.get('token');
                     }
 
