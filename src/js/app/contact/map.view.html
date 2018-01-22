@@ -1,0 +1,39 @@
+<section class="contact">
+    <h1>Или приходите:)</h1>
+    <div id="map" style="width:100%; height: 500px"></div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            ymaps.load().then(ymaps => {
+                var map = new ymaps.Map('map', {
+                    center: [53.918474, 27.583611],
+                    zoom: 12
+                });
+
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    var pointA = [position.coords.latitude, position.coords.longitude],
+                        pointB = [53.918474, 27.583611];
+
+                    var multiRoute = new ymaps.multiRouter.MultiRoute({
+                        referencePoints: [
+                            pointA,
+                            pointB
+                        ],
+                        params: {
+                            routingMode: 'pedestrian'
+                        }
+                    }, {
+                        boundsAutoApply: true
+                    });
+                    map.geoObjects.add(multiRoute);
+                }, function(error){
+                    console.log(error);
+                });
+
+                navigator.geolocation.watchPosition(function(position){
+                    console.log(position.coords.latitude + ', ' + position.coords.longitude);
+                });
+            })
+        });
+    </script>
+</section>

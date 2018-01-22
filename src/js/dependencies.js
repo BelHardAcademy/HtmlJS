@@ -1,4 +1,5 @@
 window.jQuery = window.$ = require('jquery');
+window.ymaps = require('ymaps').default;
 require('jquery-validation');
 require('./jquery.modal');
 window.angular = require('angular');
