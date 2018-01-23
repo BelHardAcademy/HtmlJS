@@ -1,7 +1,7 @@
-<section class="contact">
+<section class="contact" ng-controller="maController">
     <h1>Или приходите:)</h1>
-    <div id="map" style="width:100%; height: 500px"></div>
-
+    <map onGetPosition=="map.onGetPosition()"></map>
+<!-- 
     <script type="text/javascript">
         $(document).ready(function () {
             ymaps.load().then(ymaps => {
@@ -35,5 +35,5 @@
                 });
             })
         });
-    </script>
+    </script> -->
 </section>
