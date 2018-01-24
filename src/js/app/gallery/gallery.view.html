@@ -2,8 +2,8 @@
     <h1>Галерея <i class="fa pointer" ng-class="{ 'fa-sort-asc': !desc, 'fa-sort-desc': desc }" ng-click="desc = !desc"></i></h1>
         <div ng-repeat="item in gallery | orderBy:'album':desc">
             <h2>{{item.album}}</h2>
-            <div class="images">
-                <img ng-repeat="image in item.photos" src="{{image.thumbnail}}" data-original-src="{{image.url}}" alt="{{image.alt}}" ng-click="modal($event)" />
+            <div class="images" gallery>
+                <a ng-repeat="image in item.photos" title="{{image.alt}}" href="{{image.url}}"><img src="{{image.thumbnail}}" alt="{{image.alt}}" /></a>
             </div>
         </div>
 </section>
