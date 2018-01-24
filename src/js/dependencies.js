@@ -8,3 +8,4 @@ require('angular-ui-router');
 require('jpkleemans-angular-validate');
 require('ngStorage');
 require('angular-base64');
+require('magnific-popup');
