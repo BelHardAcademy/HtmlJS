@@ -300,6 +300,12 @@ header nav .login {
 	display: inline-block;
 }
 
+.blog-item img {
+	margin: 0 10px 10px 0;
+	width: 200px;
+	height: 200px;
+}
+
 footer.content {
 	margin-top: 20px;
 }
