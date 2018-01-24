@@ -48,6 +48,11 @@
                 url: '/contact',
                 templateUrl: '/js/app/contact/contact.view.html',
                 controller: 'contactController'
+            })
+            .state('projects', {
+                url: '/projects',
+                templateUrl: '/js/app/project/project.view.html',
+                controller: 'projectController'
             });
 
         $urlRouterProvider.otherwise('/');

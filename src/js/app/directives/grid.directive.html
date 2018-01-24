@@ -1,0 +1,13 @@
+<table>
+    <thead>
+        <tr>
+            <td ng-repeat="col in columns" ng-click="toogleSort(col)">{{col}}</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in items">
+            <td ng-repeat="col in columns">{{item[col]}}</td>
+        </tr>        
+    </tbody>
+    <tfoot></tfoot>
+</table>
