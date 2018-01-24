@@ -1,0 +1,6 @@
+<section class="contact" ng-controller="mapController">
+    <h1>Или приходите:)</h1>
+    <map on-get-position="map.onGetPosition(coords)">
+        <route ng-repeat="route in map.routes" points="route.points"></route>
+    </map>
+</section>
