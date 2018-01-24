@@ -77,10 +77,14 @@
 
     }
 
-    run.$inject = ['$rootScope'];
+    run.$inject = ['$rootScope', '$transitions'];
 
-    function run($rootScope) {
+    function run($rootScope, $transitions) {
         $rootScope.appSettings = appSettings;
+
+        $transitions.onSuccess({}, function(transition){
+            console.log(transition.from());
+        })
     }
 })({
     baseApiUrl: 'https://my-json-server.typicode.com/BelHardAcademy/HtmlJS/'
