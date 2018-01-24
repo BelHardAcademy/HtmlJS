@@ -17,6 +17,15 @@
                     .then(function (response) {
                         successCallback(response.data);
                     })
+            },
+            get: function (id, successCallback) {
+                $http({
+                        url: $rootScope.appSettings.baseApiUrl + 'blog-items/' + id,
+                        method: 'GET'
+                    })
+                    .then(function (response) {
+                        successCallback(response.data);
+                    })
             }
         };
 
