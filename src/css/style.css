@@ -1,22 +1,28 @@
 body {
 	margin-top: 80px;
 }
+
 a {
 	text-decoration: underline;
 	cursor: pointer;
 }
+
 p {
 	text-indent: 20px;
 	text-align: justify;
 	margin: 0;
 }
-h1, h2 {
+
+h1,
+h2 {
 	text-align: center;
 }
+
 h1 {
 	font-size: 26px;
 	font-weight: 800;
 }
+
 h2 {
 	margin-bottom: 10px;
 }
@@ -26,7 +32,9 @@ form {
 	margin: 0 auto;
 }
 
-input, textarea, button {
+input,
+textarea,
+button {
 	border: 1px solid #444444;
 	border-radius: 5px;
 	padding: 5px;
@@ -44,7 +52,8 @@ form fieldset label {
 	font-size: 18px;
 }
 
-form fieldset input, form fieldset textarea {
+form fieldset input,
+form fieldset textarea {
 	display: inline-block;
 	width: 73%;
 	max-width: 73%;
@@ -57,36 +66,43 @@ button {
 	cursor: pointer
 }
 
-button:hover{
+button:hover {
 	transform: scale(1.05);
 }
 
 .left {
 	float: left;
 }
+
 .right {
 	float: right;
 }
+
 .clearfix {
 	clear: both;
 }
+
 .center {
 	display: block;
 	margin: 0 auto;
 }
+
 .error {
 	color: #ff0000;
 	border-color: #ff0000;
 }
+
 .pointer {
 	cursor: pointer;
 }
+
 .content {
 	color: #2222ee;
 	width: 800px;
 	margin: 0 auto;
 	text-shadow: #eeeeee 1px 1px;
 }
+
 header {
 	color: #ffffff;
 	position: fixed;
@@ -98,31 +114,38 @@ header {
 	z-index: 9999;
 	box-shadow: #5555ee 0 2px;
 }
+
 header .content {
 	height: 100%;
 }
+
 header .logo {
 	margin-right: 15px;
 }
+
 header .logo {
 	text-decoration: none;
 	color: #ffffff;
 }
+
 header .logo h1 {
 	font-size: 22px;
 	margin: 10px 0 0;
 	font-weight: 800;
 	text-shadow: #444444 2px 2px;
 }
+
 header .logo h4 {
 	font-size: 16px;
 	margin: 0;
 	font-weight: 400;
 	text-shadow: none;
 }
+
 header nav {
 	text-align: right;
 }
+
 header nav a {
 	text-decoration: none;
 	font-size: 20px;
@@ -132,38 +155,45 @@ header nav a {
 	padding: 5px;
 	border-radius: 3px;
 	box-sizing: border-box;
-	border: 1px solid rgba(255,255,255,0);
+	border: 1px solid rgba(255, 255, 255, 0);
 	text-shadow: #444444 1px 1px;
 }
+
 header nav a:hover {
 	transform: scale(1.05, 1.05);
 	background-color: #2222ff;
 	border-color: #ffffff;
 }
+
 header nav .login {
 	padding: 10px;
 	background: #666666;
 	background: rgba(255, 255, 255, 0.9);
-    border: 1px solid;
-    border-radius: 10px;
+	border: 1px solid;
+	border-radius: 10px;
 }
+
 .content .about img {
 	display: block;
 	width: 250px;
 	margin-right: 15px;
 }
+
 .content .about table {
 	font-size: 18px;
 }
+
 .content .about iframe {
 	display: block;
 	margin: 0 auto;
 	margin-top: 15px;
 }
+
 .content .about table td:first-child {
 	font-weight: 800;
 	padding-right: 10px;
 }
+
 .content .about .video {
 	position: relative;
 }
@@ -191,18 +221,22 @@ header nav .login {
 	overflow: hidden;
 	cursor: pointer;
 }
+
 .content .hobbylist .hobby:nth-child(even) {
 	float: right;
 }
+
 .content .hobbylist .hobby:hover {
 	background: linear-gradient(#cccccc, #dddddd);
 	border: 1px solid #888888;
 }
+
 .hobby p img {
 	width: 48%;
 	float: left;
 	margin: 10px 10px 10px 0;
 }
+
 .hobby p img:nth-child(odd) {
 	float: right;
 	margin: 10px 0 10px 10px;
@@ -229,7 +263,14 @@ header nav .login {
 	position: relative;
 }
 
-.modalContent #arrowLeft, .modalContent #arrowRight {
+.content map {
+	width: 100%;
+	height: 500px;
+	display: block;
+}
+
+.modalContent #arrowLeft,
+.modalContent #arrowRight {
 	position: absolute;
 	padding: 0 50px;
 	cursor: pointer;
@@ -237,7 +278,8 @@ header nav .login {
 	top: 0;
 }
 
-.modalContent #arrowLeft:hover, .modalContent #arrowRight:hover {
+.modalContent #arrowLeft:hover,
+.modalContent #arrowRight:hover {
 	background: rgba(100, 100, 200, 0.5);
 }
 
@@ -245,20 +287,23 @@ header nav .login {
 	right: 0;
 }
 
-.modalContent #arrowLeft i, .modalContent #arrowRight i {
+.modalContent #arrowLeft i,
+.modalContent #arrowRight i {
 	position: absolute;
 	top: 50%;
 	transform: translate(0, -50%);
 	display: none;
 }
 
-.modalContent #arrowLeft:hover i, .modalContent #arrowRight:hover i {
+.modalContent #arrowLeft:hover i,
+.modalContent #arrowRight:hover i {
 	display: inline-block;
 }
 
 footer.content {
 	margin-top: 20px;
 }
+
 footer p {
 	text-align: center;
 }
