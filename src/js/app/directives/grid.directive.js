@@ -24,6 +24,18 @@
 
     function grid() {
         function link($scope, element, attrs) {
+            $scope.getValueType = function(value){
+                if (angular.isArray(value)){
+                    return 'array';
+                }
+
+                if (!isNaN(value)){
+                    return 'number';
+                }
+
+                return 'string';
+            };
+            
             $scope.$watch('source', function (source) {
                 if (!$scope.source || !angular.isArray($scope.source) || !$scope.source.length) {
                     delete $scope.grid;

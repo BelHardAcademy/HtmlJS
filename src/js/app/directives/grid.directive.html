@@ -6,7 +6,13 @@
     </thead>
     <tbody>
         <tr ng-repeat="item in grid.items">
-            <td ng-repeat="col in grid.columns">{{item[col.name]}}</td>
+            <td ng-repeat="col in grid.columns" ng-switch on="getValueType(item[col.name])">
+                <span ng-switch-default>{{item[col.name]}}</span>
+                <ul ng-switch-when="array">
+                    <li ng-repeat="element in item[col.name]">{{element}}</li>
+                </ul>
+                <span ng-switch-when="number" class="number">{{item[col.name]}}</span>
+            </td>
         </tr>        
     </tbody>
     <tfoot></tfoot>
