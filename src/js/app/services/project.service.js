@@ -9,17 +9,21 @@
 
     function projectService($http, $rootScope) {
         var service = {
-            getProjects: function (successCallback) {
+            getProjects: function (filterModel, successCallback) {
                 $http({
                         url: $rootScope.appSettings.baseApiUrl + 'project',
                         method: 'GET'
                     })
-                    .then(function (response) {
-                        successCallback(response.data);
+                    .then(function (response) {                        
+                        successCallback(filter(response.data, filterModel));
                     })
             }
         };
 
         return service;
+    }
+
+    function filter(data, filterModel){
+        return data;
     }
 })();
