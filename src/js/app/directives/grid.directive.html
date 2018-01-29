@@ -1,12 +1,12 @@
 <table>
     <thead>
         <tr>
-            <td ng-repeat="col in columns" ng-click="toogleSort(col)">{{col}}</td>
+            <td ng-repeat="col in grid.columns" ng-click="toogleSort(col.name)">{{col.name}} <i ng-class="{'fa': true, 'fa-sort-asc': col.sortDirection === 'asc', 'fa-sort-desc': col.sortDirection === 'desc'}" ng-if="col.sortDirection"></i></td>
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="item in items">
-            <td ng-repeat="col in columns">{{item[col]}}</td>
+        <tr ng-repeat="item in grid.items">
+            <td ng-repeat="col in grid.columns">{{item[col.name]}}</td>
         </tr>        
     </tbody>
     <tfoot></tfoot>

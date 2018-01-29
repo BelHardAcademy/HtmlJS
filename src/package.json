@@ -7,7 +7,7 @@
     "url": "https://github.com/BelHardAcademy/HtmlJS.git"
   },
   "scripts": {
-    "start": "start node_modules\\.bin\\webpack --watch & node_modules\\.bin\\http-server -c-1"
+    "start": "start node_modules\\.bin\\webpack --watch & start node_modules\\.bin\\http-server -c-1"
   },
   "author": "",
   "license": "ISC",
