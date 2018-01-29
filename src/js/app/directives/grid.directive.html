@@ -15,5 +15,19 @@
             </td>
         </tr>        
     </tbody>
-    <tfoot></tfoot>
+    <tfoot>
+        <tr>
+            <td colspan={{grid.columns.length}}>
+                <a ng-click="goToPage(grid.pagging.currentPage - 1)" ng-disabled="grid.pagging.currentPage <= 0">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                Страница: {{grid.pagging.currentPage + 1}} из {{grid.pagging.totalPages}}
+                <a ng-click="goToPage(grid.pagging.currentPage + 1)" ng-disabled="grid.pagging.currentPage + 1 >= grid.pagging.totalPages">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                Размер страницы: <select ng-options="item as item for item in [5, 10, 20, 50]" ng-model="grid.pagging.pageSize"></select>
+                Всего записей: {{grid.pagging.totalCount}}
+            </td>
+        </tr>
+    </tfoot>
 </table>
