@@ -321,3 +321,12 @@ footer p {
 *[disabled] {
 	cursor: not-allowed;
 }
+
+.block-ui {
+	position: relative;
+}
+
+.grid a {
+	text-decoration: none;
+	padding: 2px 5px;
+}

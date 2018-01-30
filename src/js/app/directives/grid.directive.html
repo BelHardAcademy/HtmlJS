@@ -1,33 +1,34 @@
-<table>
-    <thead>
-        <tr>
-            <td ng-repeat="col in source.columns" ng-click="source.toogleSort(col.name)">{{col.name}} <i ng-class="{'fa': true, 'fa-sort-asc': col.sortDirection === 'asc', 'fa-sort-desc': col.sortDirection === 'desc'}" ng-if="col.sortDirection"></i></td>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="item in source.items">
-            <td ng-repeat="col in source.columns" ng-switch on="col.type">
-                <span ng-switch-default>{{item[col.name]}}</span>
-                <ul ng-switch-when="array">
-                    <li ng-repeat="element in item[col.name]">{{element}}</li>
-                </ul>
-                <span ng-switch-when="number" class="number">{{item[col.name]}}</span>
-            </td>
-        </tr>        
-    </tbody>
-    <tfoot>
-        <tr>
-            <td colspan={{source.columns.length}}>
-                <a ng-click="source.goToPage(source.pagging.currentPage - 1)" ng-disabled="source.pagging.currentPage <= 0">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                Страница: {{source.pagging.currentPage + 1}} из {{source.pagging.totalPages}}
-                <a ng-click="source.goToPage(source.pagging.currentPage + 1)" ng-disabled="source.pagging.currentPage + 1 >= source.pagging.totalPages">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                Размер страницы: <select ng-options="item as item for item in [5, 10, 20, 50]" ng-model="source.pagging.pageSize"></select>
-                Всего записей: {{source.pagging.totalCount}}
-            </td>
-        </tr>
-    </tfoot>
-</table>
+<div block-ui='!isLoaded'>
+    <table class="grid">
+        <thead>
+            <tr>
+                <td ng-repeat="col in grid.columns" ng-click="toogleSort(col.name)">{{col.name}}
+                    <i class="fa" ng-class="{'fa-sort-asc': col.sort === 'asc', 'fa-sort-desc': col.sort === 'desc'}"
+                        ng-if="col.sort"></i>
+                </td>
+            </tr>
+        </thead>
+        <tbody ng-if="!isEmpty">
+            <tr ng-repeat="item in grid.items">
+                <td ng-repeat="col in grid.columns">{{item[col.name]}}</td>
+            </tr>
+        </tbody>
+        <p ng-if="isEmpty">По данному запросу нет данных</p>
+        <tfoot>
+            <tr>
+                <td colspan="{{grid.columns.length - 1}}">
+                    <a ng-click="goToPage(grid.pagging.current - 1)" ng-disabled="grid.pagging.current <= 0">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    Страница {{grid.pagging.current + 1}} из {{grid.pagging.count}}
+                    <a ng-click="goToPage(grid.pagging.current + 1)" ng-disabled="grid.pagging.current + 1 >= grid.pagging.count">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                    Записей на странице
+                    <select ng-model="grid.pagging.size" ng-options="item as item for item in [5, 10, 25, 50]"></select>
+                </td>
+                <td>Всего {{source.totalCount}} записей</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

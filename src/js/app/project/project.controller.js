@@ -5,11 +5,16 @@
         .module('app')
         .controller('projectController', projectController);
 
-    projectController.$inject = ['$scope', 'projectService', 'gridService'];
+    projectController.$inject = ['$scope', 'projectService'];
 
-    function projectController($scope, projectService, gridService) {
-        $scope.source = new gridService.GridDataSource(function(filter, callback){
-            projectService.getProjects(filter, callback);
-        });
+    function projectController($scope, projectService) {
+        $scope.source = {
+			load: function (filter) {
+				projectService.getProjects(filter, function (data) {
+					$scope.source.items = data.items;
+					$scope.source.totalCount = data.totalCount;
+				});
+			}
+		}
     }
 })();
