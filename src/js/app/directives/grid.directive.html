@@ -1,0 +1,34 @@
+<div block-ui='!isLoaded'>
+    <table class="grid">
+        <thead>
+            <tr>
+                <td ng-repeat="col in grid.columns" ng-click="toogleSort(col.name)">{{col.name}}
+                    <i class="fa" ng-class="{'fa-sort-asc': col.sort === 'asc', 'fa-sort-desc': col.sort === 'desc'}"
+                        ng-if="col.sort"></i>
+                </td>
+            </tr>
+        </thead>
+        <tbody ng-if="!isEmpty">
+            <tr ng-repeat="item in grid.items">
+                <td ng-repeat="col in grid.columns">{{item[col.name]}}</td>
+            </tr>
+        </tbody>
+        <p ng-if="isEmpty">По данному запросу нет данных</p>
+        <tfoot>
+            <tr>
+                <td colspan="{{grid.columns.length - 1}}">
+                    <a ng-click="goToPage(grid.pagging.current - 1)" ng-disabled="grid.pagging.current <= 0">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    Страница {{grid.pagging.current + 1}} из {{grid.pagging.count}}
+                    <a ng-click="goToPage(grid.pagging.current + 1)" ng-disabled="grid.pagging.current + 1 >= grid.pagging.count">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                    Записей на странице
+                    <select ng-model="grid.pagging.size" ng-options="item as item for item in [5, 10, 25, 50]"></select>
+                </td>
+                <td>Всего {{source.totalCount}} записей</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

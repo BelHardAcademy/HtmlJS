@@ -135,7 +135,7 @@
 			"technologies": ["JS", "CSS", "NodeJS"],
 			"start": "20.03.2015",
 			"end": "10.10.2015",
-			"position": "Developer"
+			"position": "Arcitector"
 		},
 		{
 			"id": 7,
@@ -167,7 +167,7 @@
 			"technologies": ["JS", "CSS", "NodeJS"],
 			"start": "20.03.2015",
 			"end": "10.10.2015",
-			"position": "Developer"
+			"position": "Arcitector"
 		},
 		{
 			"id": 11,
@@ -175,7 +175,7 @@
 			"technologies": ["JS", "CSS", "Java"],
 			"start": "20.03.2017",
 			"end": "15.01.2018",
-			"position": "Developer"
+			"position": "Senior Developer"
 		}
 	]
 }
