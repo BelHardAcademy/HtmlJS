@@ -2,7 +2,7 @@
 
 	angular.module('app').directive('blockUi', blockUi);
 
-	var template = '<div id="blockUi-loader" style="position:absolute;background:rgba(100,100,100,0.5);width:100%;height:100%"></div>';
+	var template = '<div id="block-ui" style="position:absolute;background:rgba(100,100,100,0.5);width:100%;height:100%"><div class="block-ui-loader"></div></div>';
 
 	function blockUi() {
 		return {
@@ -13,7 +13,7 @@
                     if (newValue) {
                         element.prepend(template);
                     } else {
-                        element.find('#blockUi-loader').remove();
+                        element.find('#block-ui').remove();
                     }
                 });
             }

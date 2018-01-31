@@ -1,0 +1,212 @@
+body {
+    background-image: linear-gradient(0deg, rgba(120, 120, 150, 0.7) 50%, transparent 50%), linear-gradient(90deg, rgba(150, 150, 200, 0.7) 50%, transparent 50%);
+    background-size: 100px;
+}
+
+.background {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.7), white 2%, white 98%, rgba(255, 255, 255, 0.7));
+    width: calc(800px + 5%);
+    position: relative;
+}
+
+.background::before {
+    content: '';
+    display: block;
+    height: 20px;
+    width: 100%;
+    position: absolute;
+    top: -20px;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.1));
+}
+
+.background::after {
+    content: '';
+    display: block;
+    height: 20px;
+    width: 100%;
+    position: absolute;
+    bottom: -20px;
+    background: linear-gradient(180deg, white, rgba(255, 255, 255, 0.85));
+}
+
+.overlay .blog-item {
+    column-count: 2;
+    column-gap: 20px;
+    column-rule: 2px dashed;
+}
+
+.block-ui {
+    position: relative;
+}
+
+.block-ui-loader,
+.block-ui-loader:before,
+.block-ui-loader:after {
+    border-radius: 50%;
+    width: 2.5em;
+    height: 2.5em;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation: spinner 1.8s infinite ease-in-out;
+    animation: spinner 1.8s infinite ease-in-out;
+}
+
+.block-ui-loader {
+    color: #ffffff;
+    font-size: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-indent: -9999em;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0) translate(-100%, -150%);
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+}
+
+.block-ui-loader:before,
+.block-ui-loader:after {
+    content: '';
+    position: absolute;
+    top: 0;
+}
+
+.block-ui-loader:before {
+    left: -3.5em;
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+}
+
+.block-ui-loader:after {
+    left: 3.5em;
+}
+
+@-webkit-keyframes spinner {
+    0%,
+    80%,
+    100% {
+        box-shadow: 0 2.5em 0 -1.3em;
+    }
+    40% {
+        box-shadow: 0 2.5em 0 0;
+    }
+}
+
+@keyframes spinner {
+    0%,
+    80%,
+    100% {
+        box-shadow: 0 2.5em 0 -1.3em;
+    }
+    40% {
+        box-shadow: 0 2.5em 0 0;
+    }
+}
+
+footer {
+    position: relative;
+    overflow: hidden;
+}
+
+.marquee {
+    height: 30px;
+    width: auto;
+    position: absolute;
+    display: inline-block;
+    animation: marquee 8s linear infinite;
+}
+
+@keyframes marquee {
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: -100%;
+    }
+}
+
+.gallery .images a img {
+    transform: rotate(10deg);
+}
+
+.gallery .images a:nth-child(odd) img {
+    transform: rotate(-10deg);
+}
+
+.gallery .images a:nth-child(3n+1) img {
+    transform: skew(20deg, 15deg);
+}
+
+.gallery .images a:nth-child(4) img {
+    transform: scale(1.2);
+}
+
+.blog {
+    counter-reset: blogs;
+}
+
+.blog-preview::after {
+    counter-increment: blogs;
+    content: "Запись #" counter(blogs);
+}
+
+.gallery .images a::before {
+    content: attr(title);
+}
+
+form {
+    border: 30px solid transparent;
+    border-image: url(http://demo.tutorialzine.com/2013/10/css3-features-you-can-finally-use/assets/img/border.png) 30 30 round;
+}
+
+@media (max-width:900px) {
+    .content {
+        width: 600px;
+    }
+}
+
+video {
+    -webkit-mask: url('https://itvdn.blob.core.windows.net/images/images-e1630173-e7cb-43b9-9e89-2c5ea2ed4046.png');
+}
+
+.hobby:nth-child(2) {
+    filter: blur(2px);
+}
+
+.hobby:nth-child(3) {
+    filter: grayscale(100%);
+}
+
+.hobby:nth-child(4) {
+    filter: invert(70%);
+}
+
+
+.flipcard {
+    position: relative;
+    width: 220px;
+    height: 160px;
+    perspective: 500px;
+  }
+  .flipcard:hover .front, .flipcard.flip .front{
+    transform: rotateY(180deg);
+  }
+  .flipcard:hover .back, .flipcard.flip .back{
+    transform: rotateY(0deg);
+  }
+  .flipcard .back{
+    transform: rotateY(-180deg);
+  }
+  .flipcard .front, .flipcard .back
+  {
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    transition: all 0.5s ease-in;
+    color: white;
+    background-color: #000;
+    padding: 10px;
+    backface-visibility: hidden;
+  }

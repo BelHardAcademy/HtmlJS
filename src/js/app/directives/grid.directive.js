@@ -26,7 +26,7 @@
 					return;
 				}
 				
-				$scope.isEmpty = false;;
+				$scope.isEmpty = false;
 
 				$scope.grid.items = source;
 				if (!$scope.grid.columns) {
