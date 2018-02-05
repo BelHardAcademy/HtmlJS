@@ -391,7 +391,36 @@ footer p {
     }
 }
 
+.grid {
+	width: 100%;
+	border: 1px solid #eeeeee;
+	border-collapse: collapse;	
+}
+
+.grid td {
+	border: 1px solid #eeeeee;
+	padding: 0 5px;	
+}
+
 .grid a {
 	text-decoration: none;
 	padding: 2px 5px;
+}
+
+.grid thead {
+	text-transform: capitalize;
+	font-weight: 600;
+	background: #cccccc;
+}
+
+.grid tbody tr:nth-child(odd){
+	background: #eeeeee;
+}
+
+.grid tbody tr:hover {
+	background: #dddddd;
+}
+
+.grid tbody td.number {
+	color: #176817;
 }
