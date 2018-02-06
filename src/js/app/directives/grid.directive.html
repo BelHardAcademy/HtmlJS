@@ -3,20 +3,26 @@
         <thead>
             <tr>
                 <td ng-repeat="col in grid.columns" ng-click="toogleSort(col.name)">{{col.name}}
-                    <i class="fa" ng-class="{'fa-sort-asc': col.sort === 'asc', 'fa-sort-desc': col.sort === 'desc'}"
-                        ng-if="col.sort"></i>
+                    <i class="fa" ng-class="{'fa-sort-asc': col.sort === 'asc', 'fa-sort-desc': col.sort === 'desc'}" ng-if="col.sort"></i>
                 </td>
             </tr>
         </thead>
         <tbody ng-if="!isEmpty">
             <tr ng-repeat="item in grid.items">
-                <td ng-repeat="col in grid.columns">{{item[col.name]}}</td>
+                <td ng-repeat="col in grid.columns" class="{{getType(item[col.name])}}" ng-switch on="getType(item[col.name])">
+                    <ul ng-switch-when="array">
+                        <li ng-repeat="x in item[col.name]">{{x}}</li>
+                    </ul>
+                    <span ng-switch-default>
+                        {{item[col.name]}}
+                    </span>
+                </td>
             </tr>
         </tbody>
         <p ng-if="isEmpty">По данному запросу нет данных</p>
         <tfoot>
             <tr>
-                <td colspan="{{grid.columns.length - 1}}">
+                <td colspan="{{grid.columns.length}}">
                     <a ng-click="goToPage(grid.pagging.current - 1)" ng-disabled="grid.pagging.current <= 0">
                         <i class="fa fa-angle-left"></i>
                     </a>
@@ -26,8 +32,8 @@
                     </a>
                     Записей на странице
                     <select ng-model="grid.pagging.size" ng-options="item as item for item in [5, 10, 25, 50]"></select>
+                    <span class="right">Всего {{source.totalCount}} записей</span>
                 </td>
-                <td>Всего {{source.totalCount}} записей</td>
             </tr>
         </tfoot>
     </table>
